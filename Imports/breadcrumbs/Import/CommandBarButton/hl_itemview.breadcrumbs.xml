@@ -1,0 +1,7 @@
+﻿<AML>
+  <Item type="CommandBarButton" id="C72B97BF295F42339C4A610F3A3F741D" action="add">
+    <include_events>UpdateTearOffWindowState</include_events>
+    <on_init_handler type="Method"><Item type="Method" action="get" id="CFEF9E86E0904ABAB16FCE1AC65C1B33" /></on_init_handler>
+    <name>hl_itemview.breadcrumbs</name>
+  </Item>
+</AML>

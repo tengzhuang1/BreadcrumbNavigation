@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+NOTES:
+  File path must be in unix style (path separator is /).
+  File path is case sensitive.
+-->
+<IncludeNamespaces>
+	<JavaScriptNamespace>
+		<file name="DOMPurify" src="../vendors/purify.min.js"/>
+		<file name="UserReports" src="UserReports.js"/>
+		<file name="cookie" src="cookie.js"/>
+		<file name="disabled_functions" src="disabled_functions.js"/>
+		<file name="formtool_mouse" src="formtool_mouse.js"/>
+		<file name="formtool_window" src="formtool_window.js"/>
+		<file name="item_window" src="formtool_window.js"/>
+		<file name="item_methods" src="item_methods.js"/>
+		<file name="item_methodsEx" src="item_methodsEx.js"/>
+		<file name="itemtype_methods" src="itemtype_methods.js"/>
+		<file name="lifecycletool" src="../Modules/aras.innovator.core.ItemWindow/Scripts/lifecycletool.js"/>
+		<file name="searchDialog" src="searchDialog.js"/>
+		<file name="lifeCycleDialog" src="lifeCycleDialog.js"/>
+		<file name="formtool" src="../Modules/aras.innovator.core.ItemWindow/Scripts/formtool.js"/>
+		<file name="md5" src="md5.js"/>
+		<file name="PopulateDocByLabels" src="PopulateDocByLabels.js"/>
+		<file name="promoteDialog" src="promoteDialog.js"/>
+		<file name="promoteDialogGlobalFunctions" src="promoteDialogGlobalFunctions.js"/>
+		<file name="search_grid" src="search_grid.js"/>
+		<file name="textDialog" src="textDialog.js"/>
+		<file name="soap_object" src="soap_object.js">
+			<dependencies>
+				<file name="TopWindowHelper"/>
+			</dependencies>
+		</file>
+		<file name="sp_functions" src="sp_functions.js"/>
+		<file name="ui_methods" src="ui_methods.js">
+			<dependencies>
+				<class name="ClientUrlsUtility"/>
+			</dependencies>
+		</file>
+		<file name="ui_methodsEx" src="ui_methodsEx.js"/>
+		<file name="workflow_methods" src="workflow_methods.js"/>
+		<file name="makeItCaseInsensetive" src="makeItCaseInsensetive.js"/>
+		<file name="mscorlib" src="mscorlib.js"/>
+		<file name="GUIDManager" src="GUIDManager.js"/>
+		<file name="FileUpload" src="FileUpload.js"/>
+		<file name="FileDownload" src="FileDownload.js"/>
+		<file name="path" src="path.js"/>
+		<file name="ItemsGridAsyncSoap" src="ItemsGridAsyncSoap.js"/>
+		<file name="ItemsGridAsyncController" src="ItemsGridAsyncController.js"/>
+		<file name="itemsGridCommands" src="ItemsGrid/itemsGridCommands.js"/>
+		<file name="arasStubForDojoInit" src="arasStubForDojoInit.js"/>
+		<file name="IOM.ScriptSharp" src="IOM.ScriptSharp.js">
+			<dependencies>
+				<file name="TopWindowHelper"/>
+			</dependencies>
+		</file>
+		<file name="Aras.Client.Tests.Helper.debug" src="Aras.Client.Tests.Helper.debug.js"/>
+		<file name="Aras.Client.Tests.Helper" src="Aras.Client.Tests.Helper.js"/>
+		<file name="TopWindowHelper" src="../Modules/aras.innovator.core.Core/Scripts/Classes/TopWindowHelper.js"/>
+		<file name="xPropertiesUtils" src="../Modules/aras.innovator.ExtendedClassification/Scripts/xPropertiesUtils.js"/>
+		<file name="relationshipsGridFunctions" src="relationshipsGridGlobalFunctions.js"/>
+		<file name="relationshipsInfernoGridFunctions" src="relationshipsInfernoGridGlobalFunctions.js"/>
+		<file name="dirtyItemsList" src="dirtyItemsList.js"/>
+		<class name="DragAndDrop" src="../Modules/aras.innovator.core.Core/Scripts/Classes/DragManager.js">
+			<dependencies>
+				<file src="../Modules/aras.innovator.core.Core/Scripts/Classes/DragHelper.js"/>
+			</dependencies>
+		</class>
+		<class name="ArasModules">
+			<dependencies>
+				<class name="ArasModulesWithoutCore"/>
+				<file src="../jsBundles/core.js"/>
+			</dependencies>
+		</class>
+		<class name="ArasModulesWithoutCore">
+			<dependencies>
+				<class name="polyfillsBundle"/>
+				<file src="../vendors/hyperhtml-element.min.js"/>
+				<file src="../vendors/inferno.min.js" />
+				<file name="DOMPurify" />
+				<file name="TopWindowHelper"/>
+				<file src="../Modules/cryptohash/crypto-js.js"/>
+				<file src="../Modules/cryptohash/md5.js"/>
+				<file src="../Modules/cryptohash/sha256.js"/>
+				<file src="../Modules/cryptohash/cryptohash.js"/>
+			</dependencies>
+		</class>
+		<class name="Aras" src="aras_object.js">
+			<dependencies>
+				<file src="../Modules/aras.innovator.AuthenticationFramework/Scripts/OAuthServerDiscovery.js"/>
+				<file src="../Modules/aras.innovator.AuthenticationFramework/Scripts/OAuthClient.AuthorizationCodeGrant.js"/>
+				<file src="../Modules/aras/user.js"/>
+				<file src="../Modules/aras/dialogs/properties.js"/>
+				<file src="../jsBundles/dialogs.js"/>
+				<file src="../jsBundles/searchConverter.js"/>
+				<file src="../Modules/aras/searchConverter.js"/>
+				<file src="ModalDialogHelper.js"/>
+				<class name="WebFile"/>
+				<class name="XmlDocument"/>
+				<class name="Enums"/>
+				<file src="ClientControlsFactoryHelper.js"/>
+				<file src="ShortcutsHelperFactory.js"/>
+				<file src="ExportToOfficeHelper.js"/>
+				<file src="Aras/Client/Controls/Public/Vault.js"/>
+				<file src="Aras/Client/Controls/Public/Utils.js"/>
+				<class name="ModulesHelper"/>
+				<file name="TopWindowHelper"/>
+				<class name="ClientUrlsUtility"/>
+			</dependencies>
+		</class>
+		<class name="BrowserHelper">
+			<dependencies>
+				<file src="../BrowserCode/common/javascript/FileSystemAccess.js" />
+				<file src="../BrowserCode/common/javascript/BrowserHelper.js" />
+				<class name="TimeZonesInformation"/>
+			</dependencies>
+		</class>
+		<class name="BrowserInfo" src="BrowserInfo.js"/>
+		<class name="ClassReferencesStructure" src="Structure/ClassReferencesStructure.js">
+		</class>
+		<class name="ClassStructure" src="Structure/ClassStructure.js">
+			<dependencies>
+				<class name="Solution"/>
+				<class name="ResourceManager"/>
+				<class name="Clipboard" />
+				<class name="Aras" />
+				<class name="Enums" />
+				<class name="Structure"/>
+				<class src="Structure/StructureEventHandlerProvider.js" />
+				<file src="../jsBundles/classStructure.js"/>
+			</dependencies>
+		</class>
+		<class name="ClientCache" src="client_cache.js"/>
+		<class name="ClientUrlsUtility" src="ClientUrlsUtility.js"/>
+		<class name="Clipboard" src="clipboard.js"/>
+		<class name="ComponentFieldClassStructureHelper" src="../Modules/aras.innovator.core.Form/Scripts/componentFieldClassStructureHelpers.js" />
+		<class name="ConfigurableGrid" src="ConfigurableGrid.js"/>
+		<file name="DateTimeFormatInfo" src="CultureInfo/DateTimeFormatInfo.js">
+			<dependencies>
+				<file name="TopWindowHelper"/>
+			</dependencies>
+		</file>
+		<class name="CultureInfo">
+			<dependencies>
+				<file name="DateTimeFormatInfo"/>
+				<file src="CultureInfo/CultureInfo.js"/>
+			</dependencies>
+		</class>
+		<!-- "/" is a must starting symbol. It is done for correct dojo.js parsing -->
+		<class name="/dojo.js">
+			<dependencies>
+				<file src="fixDojoSettings.js"/>
+				<class name="ClientControlsFactory"/>
+				<file src="dojo/dojo.js"/>
+				<file src="fixDojoSettingsAfter.js"/>
+			</dependencies>
+		</class>
+		<class name="ClientControlsFactory">
+			<dependencies>
+				<file src="ClientControlsFactory.js"/>
+			</dependencies>
+		</class>
+		<class name="arasStub/dojo.js">
+			<dependencies>
+				<file name="arasStubForDojoInit"/>
+				<class name="/dojo.js"/>
+			</dependencies>
+		</class>
+		<class name="Dependencies" src="Dependencies.js"/>
+		<class name="Enums" src="enumerations.js"/>
+		<class name="FeatureTreeStructure">
+			<dependencies>
+				<class src="ResourceManager.js"/>
+				<class src="QueryString.js"/>
+				<class src="Structure/Structure.js"/>
+				<class src="Structure/StructureEventHandlerProvider.js" />
+				<class src="Structure/FeatureTreeStructureEventHandlerProvider.js" />
+			</dependencies>
+		</class>
+		<class name="IOM" src="iom.js">
+			<dependencies>
+				<file name="TopWindowHelper"/>
+			</dependencies>
+		</class>
+		<class name="Licensing" src="Licensing.js"/>
+		<class name="MetadataCache" src="MetadataCache.js"/>
+		<class name="ModulesHelper" src="ModulesHelper.js">
+			<dependencies>
+				<class name="StaticVariablesStorage"/>
+			</dependencies>
+		</class>
+		<class name="Path" src="path.js"/>
+		<class name="pageReturnBlocker" src="pageReturnBlocker.js"/>
+		<class name="QryItem" src="qry_object.js"/>
+		<class name="QueryString" src="QueryString.js"/>
+		<class name="ResourceManager" src="ResourceManager.js">
+			<dependencies>
+				<class name="StaticVariablesStorage"/>
+				<class name="WebFile"/>
+				<class name="XmlDocument"/>
+				<class name="XmlUtils"/>
+			</dependencies>
+		</class>
+		<class name="ScriptSet1">
+			<dependencies>
+				<class name="DragAndDrop"/>
+				<class name="XmlDocument"/>
+				<class name="ClientCache"/>
+				<class name="QryItem"/>
+				<class name="Clipboard"/>
+				<class name="Aras"/>
+				<class name="Path"/>
+				<class name="MetadataCache"/>
+				<class name="IOM"/>
+				<class name="Enums"/>
+				<class name="VarsStorageClass"/>
+				<class name="WebFile"/>
+				<class name="UserNotificationContainer"/>
+				<class name="Licensing"/>
+				<class name="BrowserHelper"/>
+				<file src="md5.js"/>
+				<file src="cookie.js"/>
+				<file src="soap_object.js"/>
+				<file src="item_methods.js"/>
+				<file src="item_methodsEx.js"/>
+				<file src="itemtype_methods.js"/>
+				<file src="ui_methods.js"/>
+				<file src="ui_methodsEx.js"/>
+				<file src="workflow_methods.js"/>
+				<file src="disabled_functions.js"/>
+				<file src="PopulateDocByLabels.js"/>
+				<file src="sp_functions.js"/>
+			</dependencies>
+		</class>
+		<class name="ScriptSet2">
+			<dependencies>
+				<class name="QueryString"/>
+				<class name="IOM"/>
+				<class name="Enums"/>
+				<file src="cookie.js"/>
+				<file src="soap_object.js"/>
+				<file src="disabled_functions.js"/>
+			</dependencies>
+		</class>
+		<class name="ScriptSet5">
+			<dependencies>
+				<class name="Enums"/>
+				<class name="IOM"/>
+				<class name="QueryString"/>
+				<file src="soap_object.js"/>
+			</dependencies>
+		</class>
+		<class name="ScriptSet6">
+			<dependencies>
+				<class name="SearchContainer"/>
+				<class name="SearchParameterizedHelper"/>
+				<class name="SearchMode"/>
+				<class name="XmlDocument"/>
+				<file src="search_grid.js"/>
+				<file src="SearchGridObject.js"/>
+				<file src="searchGridCommands.js"/>
+				<file src="../jsBundles/searchConverter.js"/>
+			</dependencies>
+		</class>
+		<class name="SearchContainer" src="search_container.js"/>
+		<class name="SearchParameterizedHelper" src="SearchParameterizedHelper.js"/>
+		<class name="SearchMode" src="search_mode.js"/>
+		<class name="Solution" src="Solution.js"/>
+		<class name="StaticVariablesStorage" src="StaticVariablesStorage.js"/>
+		<class name="Structure" src="Structure/Structure.js" />
+		<class name="StructureBrowser" src="Structure/StructureBrowser.js">
+			<dependencies>
+				<class name="ResourceManager"/>
+				<class name="QueryString"/>
+				<class name="Structure"/>
+				<file src="../Modules/aras/dialogs/properties.js"/>
+				<class src="Structure/StructureEventHandlerProvider.js" />
+			</dependencies>
+		</class>
+		<class name="ItemProperty">
+			<dependencies>
+				<file src="../jsBundles/core.js" />
+				<file src="../vendors/inferno.min.js" />
+			</dependencies>
+		</class>
+		<class name="TearOffMenuControllerNoCUI" src="tearOffMenuController.js">
+			<dependencies>
+				<class name="ScriptSet2"/>
+				<class name="XmlDocument"/>
+				<class name="Dependencies"/>
+				<class name="XmlUtils"/>
+				<class name="ResourceManager"/>
+				<class name="Solution"/>
+				<class name="ToolbarWrapper"/>
+				<file src="UserReports.js"/>
+			</dependencies>
+		</class>
+		<class name="TearOffMenuController" src="tearOffMenuController.js">
+			<dependencies>
+				<class name="TearOffMenuControllerNoCUI"/>
+			</dependencies>
+		</class>
+		<class name="VarsStorageClass" src="vars_storage.js"/>
+		<class name="WebFile" src="WebFile.js"/>
+		<class name="WhereUsed" src="Structure/WhereUsed.js">
+			<dependencies>
+				<file src="../Modules/aras/dialogs/properties.js"/>
+			</dependencies>
+		</class>
+		<class name="XmlDocument">
+			<dependencies>
+				<file src="../BrowserCode/common/javascript/XmlDocument.js"/>
+				<file src="../BrowserCode/common/javascript/XmlDocumentCommon.js" browser_code_condition="^(?!ie$)"/>
+			</dependencies>
+		</class>
+		<class name="XmlUtils" src="XmlUtils.js">
+			<dependencies>
+				<class name="XmlDocument"/>
+			</dependencies>
+		</class>
+		<class name="ArasMainWindowInfo">
+			<dependencies>
+				<file src="../Modules/aras.innovator.core.MainWindow/ArasMainWindowInfo.js"/>
+				<file src="../Modules/aras.innovator.core.MainWindow/AsyncCachedMainWindowInfoProvider.js"/>
+				<file src="../Modules/aras.innovator.core.MainWindow/SyncMainWindowInfoProvider.js"/>
+			</dependencies>
+		</class>
+		<class name="MainGridFactory" src="ItemsGrid/MainGridFactory.js">
+			<dependencies>
+				<file src="ItemsGrid/BaseItemTypeGrid.js"/>
+				<file src="ItemsGrid/ItemGrid.js"/>
+				<file src="ItemsGrid/InBasketTaskGrid.js"/>
+				<file src="ItemsGrid/previewPane.js"/>
+				<file src="UserReports.js"/>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xPropertiesUtils.js" />
+			</dependencies>
+		</class>
+		<class name="RelationshipsGridFactory" src="../Modules/aras.innovator.core.Controls/Scripts/Controls/RelationshipsGrid/RelationshipsGridFactory.js">
+			<dependencies>
+				<file src="../Modules/aras.innovator.core.Controls/Scripts/Controls/RelationshipsGrid/BaseRelationshipsGrid.js"/>
+				<file src="../Modules/aras.innovator.core.Controls/Scripts/Controls/RelationshipsGrid/BaseRelationshipsGridWrapper.js"/>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/propertyOverrideModule.js"/>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassRelationshipsGrid.js"/>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xPropertiesUtils.js" />
+			</dependencies>
+		</class>
+		<file name="TemplateHandler" src="../Modules/aras.innovator.SSVC/Scripts/TemplateHandler.js">
+			<dependencies>
+				<file name="TopWindowHelper"/>
+			</dependencies>
+		</file>
+		<class name="DiscussionStatic">
+			<dependencies>
+				<file src="../Modules/aras.innovator.SSVC/Scripts/ArasHelper.js"/>
+				<file name="TemplateHandler"/>
+				<file src="../Modules/aras.innovator.SSVC/Scripts/DiscussionController.js"/>
+			</dependencies>
+		</class>
+		<class name="MyReports" src="../Modules/aras.innovator.Izenda/Scripts/MyReports.js">
+			<dependencies>
+				<file src="../javascript/UserReports.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Preview.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Search.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Utils.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/Toolbars.js"/>
+			</dependencies>
+		</class>
+		<class name="SelfServiceReporting">
+			<dependencies>
+				<class name="/dojo.js"/>
+				<class name="ModulesHelper"/>
+				<class name="XmlUtils"/>
+				<file src="dojo/layout.js"/>
+				<file src="../Modules/aras.innovator.core.Core/Scripts/Classes/TopWindowHelper.js"/>
+				<file src="../javascript/PopulateDocByLabels.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/Breadcrumbs.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/IzendaOverrides.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Utils.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/BaseTab.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/ItemTypes.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/SplittedTab.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/Properties.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/Summary.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/Filters.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/Chart.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/Gauge.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/Misc.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/TabControllers/Style.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/BaseItemTypeTree.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/TabsAggregator.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/ReportingStructure.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/ShareSelector.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/Toolbars.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Widgets/ExpImpSSReport.js"/>
+			</dependencies>
+		</class>
+		<class name="polyfillsBundle">
+			<dependencies>
+				<file src="../Modules/polyfills/polyfillsBundle.min.js"/>
+				<file src="../Modules/polyfills/dialog-polyfill.js" browser_code_condition="^ff$"/>
+				<file src="../Modules/polyfills/adoptedStyleSheets.js"/>
+			</dependencies>
+		</class>
+		<class name="MainWindow">
+			<dependencies>
+				<class name="ModulesHelper"/>
+				<class name="BrowserInfo"/>
+				<class name="CultureInfo"/>
+				<class name="ScriptSet1"/>
+				<class name="ArasMainWindowInfo"/>
+				<class name="Solution"/>
+				<class name="ResourceManager"/>
+				<class name="Dependencies"/>
+				<file name="makeItCaseInsensetive"/>
+				<file name="mscorlib"/>
+				<file name="GUIDManager"/>
+				<file name="FileUpload"/>
+				<file name="FileDownload"/>
+				<file name="path"/>
+				<file name="UserReports" />
+				<file src="../Modules/aras.innovator.core.MainWindow/setup.js" />
+				<file src="../Modules/aras.innovator.core.MainWindow/deepLinking.js" />
+				<file src="../Modules/aras.innovator.PhoneHomeCall/Scripts/PhoneHomeCall.js"/>
+			</dependencies>
+		</class>
+		<class name="ReportItemEditorView" src="../Modules/aras.innovator.Izenda/Scripts/ReportItemEditorView.js" />
+		<class name="XClassesFormControl">
+			<dependencies>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassesFormControl/formFieldsTemplates.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassesFormControl/controlTemplates.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassesFormControl/xClassesFormControl.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xPropertiesUtils.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/classificationSelection.js" />
+			</dependencies>
+		</class>
+		<class name="XClassificationTreeEditor">
+			<dependencies>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassEditor.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassEditorTree.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassEditorGrid.js" />
+			</dependencies>
+		</class>
+		<class name="DynamicTreeGrid">
+			<dependencies>
+				<file src="../Modules/aras.innovator.core.Controls/Scripts/Controls/DynamicTreeGrid/DynamicTreeGridUtils.js"/>
+				<file src="../Modules/aras.innovator.core.Controls/Scripts/Controls/DynamicTreeGrid/DynamicTreeGridActions.js"/>
+				<file src="../Modules/aras.innovator.core.Controls/Scripts/Controls/DynamicTreeGrid/DynamicTreeGridFormatters.js"/>
+				<file src="../Modules/aras.innovator.core.Controls/Scripts/Controls/DynamicTreeGrid/DynamicTreeGrid.js"/>
+			</dependencies>
+		</class>
+		<class name="ItemWindowWithCommon">
+			<dependencies>
+				<file src="item_window_variables.js" />
+				<file src="item_window.js" />
+				<file src="item_window_common.js" />
+			</dependencies>
+		</class>
+		<class name="SettingsChoiceListTemplate">
+			<dependencies>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/PropertiesSearch.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/Utils.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/ReportSettings/SettingsChoiceControl.js"/>
+				<file src="../Modules/aras.innovator.Izenda/Scripts/ReportSettings/SettingsChoiceListTemplate.js"/>
+			</dependencies>
+		</class>
+		<class name="ToolbarWrapper">
+			<dependencies>
+				<file src="Aras/Client/Controls/Public/ToolbarWrapper.js"/>
+				<file src="Aras/Client/Controls/Public/ToolbarItemWrapper.js"/>
+			</dependencies>
+		</class>
+		<class name="ColumnSelection" src="../Modules/aras.innovator.ExtendedClassification/Scripts/columnSelection.js">
+			<dependencies>
+				<class name="ToolbarWrapper" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassSearch/CheckboxState.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassSearch/XClassSearchCheckbox.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassSearch/XClass.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassSearch/xClassSearchControl.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassSearch/xClassSearchFilters.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassSearch/xClassSearchWrapper.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xClassSearch/XClassBar.js" />
+			</dependencies>
+		</class>
+		<class name="ColumnSelectionFactory" src="../Modules/aras.innovator.ExtendedClassification/Scripts/ColumnSelectionMediatorFactory.js">
+			<dependencies>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/xPropertiesUtils.js" />
+				<class name="ColumnSelection" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/BaseColumnSelectionMediator.js" />
+				<file src="../Modules/aras.innovator.ExtendedClassification/Scripts/RelationshipColumnSelectionMediator.js" />
+			</dependencies>
+		</class>
+		<class name="arasInnovatorCUI" src="../Modules/aras.innovator.CUI/Scripts/Classes/ConfigurableUI.js">
+			<dependencies>
+				<file src="../Modules/aras.innovator.CUI/Scripts/Classes/Utils.js" />
+				<file src="../Modules/aras.innovator.CUI/Scripts/Classes/CuiMenu.js" />
+				<file src="../Modules/aras.innovator.CUI/Scripts/Classes/CuiDataLoader.js" />
+				<file src="../Modules/aras.innovator.CUI/Scripts/Classes/CuiContextMenu.js" />
+				<file src="../Modules/aras.innovator.CUI/Scripts/Classes/CompatCuiToolbar.js" />
+			</dependencies>
+		</class>
+		<class name="tearoffWindow">
+			<dependencies>
+				<file src="../Modules/aras.innovator.core.ItemWindow/Scripts/_tabItemViewLayout_init.js" />
+				<file src="../Modules/aras.innovator.core.ItemWindow/Scripts/_tabItemViewLayout.js" />
+				<file src="item_window_variables.js" />
+				<file src="item_window.js" />
+				<file src="item_window_common.js" />
+				<file src="../jsBundles/ssvc.js" />
+			</dependencies>
+		</class>
+		<class name="formInstance">
+			<dependencies>
+				<class name="XmlDocument"/>
+				<class name="ScriptSet5"/>
+				<class name="DragAndDrop"/>
+			</dependencies>
+		</class>
+		<class name="ItemViewWrappers">
+			<dependencies>
+				<file src="Aras/Client/Controls/Experimental/TabContainerWrapper.js" />
+				<file src="Aras/Client/Controls/Experimental/RelationshipsTabbarWrapper.js" />
+				<file src="Aras/Client/Controls/Experimental/RelationshipsControlWrapper.js" />
+				<file src="Aras/Client/Controls/Experimental/RelationshipsWrapper.js" />
+				<file src="Aras/Client/Controls/Experimental/SidebarWrapper.js" />
+			</dependencies>
+		</class>
+		<class name="WorkflowProcess">
+			<dependencies>
+				<file src="../scripts/WorkflowProcess/Synchronizer.js" />
+				<file src="../scripts/WorkflowProcess/Activity.js" />
+				<file src="../scripts/WorkflowProcess/Assignment.js" />
+				<file src="../scripts/WorkflowProcess/Assignments.js" />
+				<file src="../scripts/WorkflowProcess/ActivityHandler.js" />
+			</dependencies>
+		</class>
+	</JavaScriptNamespace>
+	<CSSNamespace>
+		<class name="ExtendedClassification.css" src="../Modules/aras.innovator.ExtendedClassification/Styles/mainGridColumnSelection.css">
+			<dependencies>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Styles/xClassEditor.css"/>
+				<file src="../Modules/aras.innovator.ExtendedClassification/Styles/xClassBar.css" />
+			</dependencies>
+		</class>
+		<file name="propertySelection.css" src="../Modules/aras.innovator.ExtendedClassification/Styles/propertySelection.css" />
+		<file name="default.css" src="../styles/default.css" />
+		<class name="common.min.css" src="../styles/common.min.css" />
+		<class name="common.css">
+			<dependencies>
+				<file src="../styles/controls/configurableGrid.css" />
+				<file src="../styles/controls/mainTree.css" />
+				<file src="../styles/controls/statusbar.css" />
+				<file src="../styles/controls/tabs.css" />
+				<file src="../styles/controls/treeGrid.css" />
+				<file src="../styles/controls/dropbox.css" />
+				<file src="../styles/controls/popupMessages.css" />
+				<file src="../styles/mainWindow.css" />
+				<class name="toolbarElements.css"/>
+				<file src="../styles/itemProperties.css" />
+				<file src="../styles/splitter.css" />
+				<file src="../styles/queryBuilder.css" />
+				<file src="../styles/dac.css" />
+				<file src="../Modules/aras.innovator.core.EffectivityServices/Styles/EffectivityStyles.min.css" />
+			</dependencies>
+		</class>
+		<class name="toolbarElements.css">
+			<dependencies>
+				<file src="../styles/controls/menu.css" />
+				<file src="../styles/controls/grid.css" />
+				<file src="../styles/controls/toolbar.css" />
+				<file src="../styles/formElements.css" />
+			</dependencies>
+		</class>
+		<class name="themesClaroHelperForPublic.css">
+			<dependencies>
+				<file src="../styles/themes/claro/SimpleTabbar.css" />
+				<file src="../styles/themes/claro/Tree.css" />
+				<file src="../styles/themes/claro/MainMenu.css" />
+			</dependencies>
+		</class>
+		<file name="dojo.css" src="dojo/resources/dojo.css" />
+		<file name="claroGrid.css" src="dojox/grid/resources/claroGrid.css" />
+		<file name="CheckedMultiSelect.css" src="dojox/form/resources/CheckedMultiSelect.css" />
+		<class name="arasClaro.css" src="../styles/themes/claro/claro.css">
+			<dependencies>
+				<file src="dijit/themes/claro/claro.css" />
+				<file src="../styles/themes/claro/SimpleTabbar.css" />
+				<file src="../styles/themes/claro/Tree.css" />
+				<file src="../styles/themes/claro/MainMenu.css" />
+				<file name="dojo.css" />
+			</dependencies>
+		</class>
+		<class name="dijitClaro.css" src="dijit/themes/claro/claro.css"/>
+		<class name="discussion.css" src="../Modules/aras.innovator.SSVC/Styles/Feed.css">
+			<dependencies>
+				<file src="../Modules/aras.innovator.SSVC/Styles/FeedToolbar.css" />
+				<file src="../Modules/aras.innovator.SSVC/Styles/FilterPopup.css" />
+				<file src="../Modules/aras.innovator.SSVC/Styles/MessageControl.css" />
+				<file src="../Modules/aras.innovator.SSVC/Styles/UserControl.css" />
+				<file src="../Modules/aras.innovator.SSVC/Styles/UserSelect.css" />
+				<file src="../Modules/aras.innovator.SSVC/Styles/Mention.css" />
+			</dependencies>
+		</class>
+		<class name="variantsTree.css" src="../Modules/aras.innovator.core.Controls/Styles/Controls/variantsTree.css">
+			<dependencies>
+				<file src="../Modules/aras.innovator.core.Controls/Styles/Controls/VariantsTreeContextMenu.css" />
+				<file name="dojo.css" />
+				<class name="common.css"/>
+				<class name="_layout.css" />
+			</dependencies>
+		</class>
+		<class name="DynamicTreeGrid.css" src="../Modules/aras.innovator.core.Controls/Styles/Controls/DynamicTreeGrid.css">
+			<dependencies>
+				<class name="common.css" />
+				<class name="common.min.css" />
+			</dependencies>
+		</class>
+		<class name="_layout.css" src="../Modules/aras.innovator.core.ItemWindow/Styles/_layout.css" />
+		<class name="cuiLayout.css">
+			<dependencies>
+				<file src="../styles/cuiLayout.css" />
+				<file src="../styles/itemProperties.css" />
+				<file src="../Modules/aras.innovator.core.EffectivityServices/Styles/EffectivityStyles.min.css" />
+				<file src="../styles/huilian/breadcrumb-nav.css" />
+			</dependencies>
+		</class>
+		<class name="ChoiceListTemplate.css" src="../Modules/aras.innovator.Izenda/Styles/ChoiceListTemplate.css" />
+		<class name="MyReports.css">
+			<dependencies>
+				<class name="arasClaro.css"/>
+				<class name="common.css"/>
+				<file name="default.css"/>
+				<file src="../Modules/aras.innovator.Izenda/Styles/MyReports.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/ReportsTree.css" />
+			</dependencies>
+		</class>
+		<class name="ShareWithGrid.css">
+			<dependencies>
+				<file name="dojo.css" />
+				<class name="dijitClaro.css" />
+				<file name="claroGrid.css" />
+				<class name="common.css"/>
+				<file name="default.css"/>
+			</dependencies>
+		</class>
+		<class name="ReportViewer.css">
+			<dependencies>
+				<file src="../Modules/aras.innovator.Izenda/Styles/Popup.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Preview.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/ReportingStructure.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/ReportViewer.css" />
+			</dependencies>
+		</class>
+		<class name="InnovatorIzendaUI.css">
+			<dependencies>
+				<file src="../Modules/aras.innovator.Izenda/Styles/ReportingStructure.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Popup.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Charts.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Gauge.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Filters.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Misc.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Style.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Properties.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Summary.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/Tabs/Preview.css" />
+				<file src="../Modules/aras.innovator.Izenda/Styles/InnovatorIzendaUI.css" />
+			</dependencies>
+		</class>
+	</CSSNamespace>
+</IncludeNamespaces>

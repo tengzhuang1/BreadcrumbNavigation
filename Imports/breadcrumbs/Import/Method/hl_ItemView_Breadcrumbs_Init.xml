@@ -1,0 +1,24 @@
+﻿<AML>
+  <Item type="Method" action="add" id="CFEF9E86E0904ABAB16FCE1AC65C1B33">
+    <comments>HL : FAW369 : 面包屑导航</comments>
+    <execution_allowed_to type="Identity">
+      <Item type="Identity" action="get" select="id">
+        <name>World</name>
+      </Item>
+    </execution_allowed_to>
+    <method_code><![CDATA[//********************************************************
+//新增日期:2022.06.07
+//作者:tz
+//应用对象:CommandBarButton:hl_itemview.breadcrumbs
+//触发时机:Init Method
+//內容说明:面包屑导航菜单加载事件
+//********************************************************
+aras.evalMethod("hl_Breadcrumbs_Init",undefined,undefined);
+return {
+    type: 'text',
+    invisible: true
+};]]></method_code>
+    <method_type>JavaScript</method_type>
+    <name>hl_ItemView_Breadcrumbs_Init</name>
+  </Item>
+</AML>

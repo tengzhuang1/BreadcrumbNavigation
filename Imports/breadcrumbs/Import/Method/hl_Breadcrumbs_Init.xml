@@ -1,0 +1,200 @@
+﻿<AML>
+  <Item type="Method" action="add" id="64C288B4A2EB4C32ACEC0610115283BF">
+    <comments>HL : FAW369 : 面包屑导航</comments>
+    <execution_allowed_to type="Identity">
+      <Item type="Identity" action="get" select="id">
+        <name>World</name>
+      </Item>
+    </execution_allowed_to>
+    <method_code><![CDATA[//********************************************************
+//新增日期:2022.06.07
+//作者:tz
+//应用对象:Method:hl_ItemView_Breadcrumbs_Init
+//触发时机:Method中调用
+//內容说明:生成面包屑导航菜单
+//********************************************************
+const mainWindow = aras.getMainWindow();
+
+var winDoc;
+var openerWin;
+var breadOlEle;
+try{
+    if(!arasTabsobj){return;}
+    
+    const curTab=mainWindow.arasTabs.data.get(mainWindow.arasTabs.selectedTab);
+
+    winDoc=window.document;
+    openerWin=curTab.parentTab?mainWindow[curTab.parentTab]:undefined;
+    
+    const titleBarControl = winDoc.querySelector("#top-toolbars .aras-titlebar");
+    const itemToolBar = titleBarControl.querySelector('.aras-toolbar');
+    const openerBreadcrumbs=openerWin?openerWin.document.querySelector('.htmleaf-container'):undefined;
+    let breadcrumbs=titleBarControl.querySelector('.htmleaf-container');
+    if(breadcrumbs){
+        breadcrumbs.querySelector('.current em a').innerText=aras.getKeyedNameEx(window.item);
+        return;
+    }else if(openerBreadcrumbs){
+        breadcrumbs=openerBreadcrumbs.cloneNode(true);
+        let olNode=breadcrumbs.querySelector('ol');
+        olNode.removeChild(olNode.querySelector('.current'));
+        titleBarControl.insertBefore(breadcrumbs, itemToolBar);
+    }else{
+        breadcrumbs = winDoc.createElement('div');
+        breadcrumbs.className = "htmleaf-container";
+        breadcrumbs.innerHTML = '<section><nav><ol class="cd-breadcrumb triangle custom-icons"  id="breadOl"></ol></nav></section>';
+    
+        let itemToolBar = titleBarControl.querySelector('.aras-toolbar');
+        titleBarControl.insertBefore(breadcrumbs, itemToolBar);
+    }
+    
+    breadOlEle = breadcrumbs.querySelector("#breadOl");
+    if(openerWin){
+       addPathNode(openerWin.name,false); 
+    }
+    addPathNode(window.name,true);
+    
+    titleBarControl.style.height = "auto";
+}catch{
+    
+}
+
+mainWindow.openPreWindow = (aNodeId,currentWin) => {
+    if (!mainWindow) {
+        mainWindow = aras.getMainWindow();
+    }
+    
+    let targetNode=currentWin.document.getElementById(aNodeId);
+    let winName = targetNode.name;
+    const preWnd = mainWindow[winName];
+    if (!preWnd) {
+        if(targetNode.isItemWindow){
+            const itemWin=findLastVersionWindow(targetNode);
+            if(!itemWin){
+                aras.getNotifyByContext(currentWin)("页面已关闭");
+                return;
+            }
+            winName=itemWin.name;
+        }else{
+            aras.getNotifyByContext(currentWin)("页面已关闭");
+            return;
+        }
+    }
+    
+    let closeTabs=[currentWin.name];
+    while(targetNode.parentElement.nextSibling){
+        const nextNode=targetNode.parentElement.nextSibling.firstChild;
+        if(nextNode.tagName=="EM"){
+            break;
+        }
+        
+        let nextWin=mainWindow[nextNode.name];
+        if(!nextWin){
+            if(nextNode.isItemWindow){
+                nextWin=findLastVersionWindow(nextNode);
+                if(nextWin){
+                    closeTabs.push(nextWin.name);
+                }
+            }
+        }else{
+            closeTabs.push(nextWin.name);
+        }
+        targetNode=nextNode;
+    }
+    mainWindow.arasTabs.selectTab(winName);
+    //mainWindow.arasTabs.closeTabs(closeTabs).then((xxx)=>{
+    //    mainWindow.arasTabs.selectTab(winName);
+    //});
+};
+
+function addPathNode(winName,isLastPath){
+    let pageName;
+    // let isItemWindow;
+    let breadIcon;
+    const openerWin = mainWindow[winName];
+    // if (openerWin.isItemsGrid) {
+    //     pageName = "搜索";
+    //     breadIcon = '../images/ExecuteSearch.svg';
+    // } else if (openerWin.isItemWindow) {
+    //     pageName = aras.getKeyedNameEx(openerWin.item);
+    //     breadIcon=getItemTypeIcon(openerWin.item,openerWin.itemTypeName);
+    //     isItemWindow=true;
+    // } else if (openerWin.name.includes('page_Ans_Dashboard_UI')) {
+    //     pageName = "看板";
+    //     breadIcon = '../images/NodeView.svg';
+    // } else if (openerWin.name.includes('page_hl_Navigation')) {
+    //     pageName = "导航";
+    //     breadIcon = '../images/EBOM.svg';
+    // }else if(openerWin.ES){
+    //     pageName = "全局搜索";
+    //     breadIcon = '../images/Loupe.svg';
+    // }else if (openerWin?.windowType == "whereUsed") {
+    //     pageName = "用于何处";
+    //     breadIcon=getItemTypeIcon(aras.getItemById(openerWin.itemTypeName,openerWin.itemId),openerWin.itemTypeName);
+    // } else if (openerWin?.windowType == "structureBrowser") {
+    //     pageName = "结构浏览";
+    //     breadIcon=getItemTypeIcon(aras.getItemById(openerWin.itemTypeName,openerWin.itemId),openerWin.itemTypeName);
+    // }else if(openerWin?.SPDM?.FileExplorer){
+    //     pageName = "文件管理";
+    //     breadIcon = '../images/Help.svg';
+    // } else {
+    //     pageName = "未知页面";
+    //     breadIcon = '../images/Help.svg';
+    // }
+    
+    const winTab=mainWindow.arasTabs.data.get(winName);
+    breadIcon=winTab.image;
+    pageName=winTab.label;
+
+    let newP = winDoc.createElement("li");
+    let aNode;
+    if (isLastPath) {
+        aNode = winDoc.createElement("em");
+        aNode.id=winName;
+        newP.className = "current";
+    } else {
+        aNode = winDoc.createElement("a");
+        aNode.id=winName;
+        aNode.href = `javascript:aras.getMainWindow().openPreWindow('${winName}',this);`;
+        aNode.name = winName;
+        if(openerWin.isItemWindow){
+            aNode.isItemWindow=true;
+            aNode.itemTypeName=openerWin.itemTypeName;
+            aNode.itemID=openerWin.itemID;
+        }
+    }
+
+    let spanNode = winDoc.createElement("span");
+    spanNode.style.backgroundImage = `url('${breadIcon}')`;
+    aNode.appendChild(spanNode);
+    let textNode = winDoc.createElement("a");
+    textNode.innerText=pageName;
+    aNode.appendChild(textNode);
+
+    newP.appendChild(aNode);
+    breadOlEle.appendChild(newP);
+}
+
+function findLastVersionWindow(targetNode){
+    const itemType = aras.getItemTypeForClient(targetNode.itemTypeName, 'name');
+    if(itemType.getProperty('is_versionable') == '1'){
+        const lastItem=mainWindow.aras.getItemLastVersion(targetNode.itemTypeName,targetNode.itemID);
+        // const itemWin=aras.uiFindAndSetFocusWindowEx(lastItem.getAttribute("id"));
+        const itemWin=aras.uiFindWindowEx(lastItem.getAttribute("id"));
+        return itemWin;
+    }
+    return null;
+}
+
+function getItemTypeIcon(currentItem, itName) {
+    let breadIcon;
+    const itemType = aras.getItemTypeForClient(itName, 'name');
+    if (typeof currentItem !== "undefined" && currentItem) {
+        breadIcon = breadIcon || aras.getItemProperty(currentItem, 'icon') || aras.getItemProperty(currentItem, 'image') || aras.getItemProperty(currentItem, 'open_icon') || aras.getItemProperty(currentItem, 'thumbnail');
+    }
+    breadIcon = breadIcon || itemType.getProperty('large_icon') || '../images/DefaultItemType.svg';
+    return breadIcon;
+}]]></method_code>
+    <method_type>JavaScript</method_type>
+    <name>hl_Breadcrumbs_Init</name>
+  </Item>
+</AML>
