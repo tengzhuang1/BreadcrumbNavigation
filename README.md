@@ -44,6 +44,6 @@ Aras Innovator Version 22  Build: 14.0.8.35675
 现在您可以访问系统并使用面包屑导航功能了
 
 
-## 联系我
-[QQ:408153664](tencent://message/?uin=408153664)
+## 技术交流 📣
+[QQ群:197823386](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=9QBAR-Ra85m9l3GUxCX49rRFPWLs87FG&authKey=kdr98tqLBx2rF5swIO5%2BiKGQRJdLt8DZ5t2sSHY8pWfHhmjAioXEfWJfs4wShNfJ&noverify=0&group_code=197823386)
 
